@@ -8,7 +8,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	credit "github.com/danielfoehrkn/resource-reservations-grpc/pkg/proto/gen/resource-reservations"
+	credit "github.com/danielfoehrKn/resource-reservations-grpc/pkg/proto/gen/resource-reservations"
 )
  
 type server struct {

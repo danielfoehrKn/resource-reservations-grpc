@@ -7,7 +7,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	resources "github.com/danielfoehrkn/resource-reservations-grpc/pkg/proto/gen/resource-reservations"
+	resources "github.com/danielfoehrKn/resource-reservations-grpc/pkg/proto/gen/resource-reservations"
 )
  
 func main() {
