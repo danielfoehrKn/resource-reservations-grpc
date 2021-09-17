@@ -7,7 +7,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	credit "github.com/danielfoehrkn/resource-reservations-grpc/pkg/proto/gen"
+	resources "github.com/danielfoehrkn/resource-reservations-grpc/pkg/proto/gen/resource-reservations"
 )
  
 func main() {
@@ -19,17 +19,29 @@ func main() {
 	}
 	defer conn.Close()
  
-	client := credit.NewCreditServiceClient(conn)
- 
-	request := &credit.CreditRequest{Amount: 1990.01}
+	client := resources.NewResourceReservationsClient(conn)
+
+	kubeReserved := map[string]string{
+		"cpu": "1",
+		"memory": "2Gi",
+		"pid": "10k",
+	}
+
+	systemReserved := map[string]string{
+		"memory": "200Mi",
+		"pid": "1k",
+	}
+
+	request := &resources.UpdateResourceReservationsRequest{KubeReserved: kubeReserved, SystemReserved: systemReserved}
  
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
  
-	response, err := client.Credit(ctx, request)
+	response, err := client.UpdateResourceReservations(ctx, request)
 	if err != nil {
 		log.Fatalln(err)
 	}
- 
-	log.Println("Response:", response.GetConfirmation())
+
+	// will be empty
+	log.Println("Response:", response)
 }
