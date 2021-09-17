@@ -1,0 +1,15 @@
+{
+"config": {
+  "metadata": {
+    "name": "test-sandbox"
+  },
+  "log_directory": "/home/vagrant/cri/logs",
+  "linux": {
+    "security_context": {
+      "namespace_options": {
+        "network": 2
+      }
+    }
+  }
+}
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+ 
+package credit;
+
+option go_package = "github.com/danielfoehrkn/resource-reservations-grpc/pkg/proto";
+ 
+message CreditRequest {
+    float amount = 1;
+}
+ 
+message CreditResponse {
+    string confirmation = 1;
+}
+ 
+service CreditService {
+    rpc Credit(CreditRequest) returns (CreditResponse) {}
+}
