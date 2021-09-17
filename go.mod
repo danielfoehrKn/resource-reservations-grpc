@@ -1,4 +1,4 @@
-module github.com/danielfoehrKn/resource-reservations-grpc
+module github.com/danielfoehrkn/resource-reservations-grpc
 
 go 1.17
 
