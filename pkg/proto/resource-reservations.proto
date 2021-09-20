@@ -14,13 +14,11 @@ package v1;
 //option (gogoproto.goproto_unrecognized_all) = false;
 
 
-
-
-
 // ResourceReservations is a service provided by the kubelet that provides information about the
 // current resources reservations on the node
 service ResourceReservations {
   rpc UpdateResourceReservations(UpdateResourceReservationsRequest) returns (UpdateResourceReservationsResponse) {}
+  rpc GetResourceReservations(GetResourceReservationsRequest) returns (GetResourceReservationsResponse) {}
 }
 
 message UpdateResourceReservationsRequest {
@@ -29,3 +27,9 @@ message UpdateResourceReservationsRequest {
 }
 
 message UpdateResourceReservationsResponse {}
+
+message GetResourceReservationsRequest {}
+message GetResourceReservationsResponse {
+  map<string, string> SystemReserved = 1;
+  map<string, string> KubeReserved = 2;
+}

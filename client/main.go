@@ -42,6 +42,12 @@ func main() {
 		log.Fatalln(err)
 	}
 
+	getResourceReservationsResponse, err := client.GetResourceReservations(ctx, &resources.GetResourceReservationsRequest{})
+	if err != nil {
+		log.Fatalln(err)
+	}
+	log.Printf("received list: %v", getResourceReservationsResponse)
+
 	// will be empty
 	log.Println("Response:", response)
 }
